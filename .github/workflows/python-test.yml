@@ -18,6 +18,10 @@ jobs:
         with:
           python-version: "3.13"
 
+      - name: Install dependencies
+        run: |
+          pip install pytest
+
       - name: Run tests
         run: |
-          python test_calculator.py
+          pytest
