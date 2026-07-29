@@ -1,4 +1,4 @@
-from calculator import add, subtract, multiply, divide
+from src.calculator import add, subtract, multiply, divide
 
 def test_calculator():
     assert add(10, 5) == 15, "Addition failed"
