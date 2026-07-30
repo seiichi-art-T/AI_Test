@@ -2,7 +2,10 @@
 __pycache__/
 *.py[cod]
 
-# 仮想環境
+# pytest
+.pytest_cache/
+
+# Virtual environment
 .venv/
 venv/
 

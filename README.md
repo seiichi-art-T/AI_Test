@@ -35,6 +35,26 @@
 - 削除
 - ブラウザ保存
 
+## 開発・テスト手順
+
+### 1. 環境構築
+```bash
+pip install -r requirements.txt
+```
+
+### 2. テストの実行
+```bash
+pytest
+```
+
+### 3. カバレッジの確認
+```bash
+pytest --cov=src
+```
+
+### 4. Todoアプリの起動
+`apps/todo_app/index.html` をブラウザで開いてください。
+
 ## 目的
 
 ローカルLLMを利用したAI開発環境の構築・検証。
