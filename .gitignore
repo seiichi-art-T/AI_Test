@@ -1,17 +1,67 @@
-# Python
+# Byte-compiled / optimized / DLL files
 __pycache__/
 *.py[cod]
+*$py.class
 
-# pytest
+# C extensions
+*.so
+
+# Distribution / packaging
+.Python
+build/
+develop-eggs/
+dist/
+downloads/
+eggs/
+.eggs/
+lib/
+lib64/
+parts/
+sdist/
+var/
+wheels/
+share/python-wheels/
+*.egg-info/
+.installed.cfg
+*.egg
+MANIFEST
+
+# PyInstaller
+#  Usually these files are written by a script, and you might want to keep them
+#  for some reason but usually they should be ignored.
+*.spec
+
+# Unit test / coverage reports
+htmlcov/
+.tox/
+.nox/
+.coverage
+.coverage.*
+.cache
+nosetests.xml
+coverage.xml
+*.cover
 .pytest_cache/
 
-# Virtual environment
-.venv/
+# Environments
+.env
+.venv
+env/
 venv/
+ENV/
+env.bak/
+venv.bak/
 
-# VS Code
+# IDEs / Editors
 .vscode/
+.idea/
+*.swp
+*.swo
 
-# OS
+# OS files
 .DS_Store
 Thumbs.db
+desktop.ini
+
+# Custom project ignores
+.pytest_cache/

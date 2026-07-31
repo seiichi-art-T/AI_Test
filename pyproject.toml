@@ -1,0 +1,15 @@
+[tool.setuptools]
+package-dir = { "" = "src" }
+
+[project]
+name = "ai_test"
+version = "0.1.0"
+description = "AI Test Project"
+dependencies = [
+    "pytest",
+    "pytest-cov",
+]
+
+[tool.pytest.ini_options]
+testpaths = ["tests"]
+pythonpath = ["."]
