@@ -12,6 +12,9 @@ def divide(x, y):
         return "Error! Division by zero."
     return x / y
 
+def power(x, y):
+    return x ** y
+
 def main():
     print("--- Simple Python Calculator ---")
     print("Select operation:")
@@ -19,15 +22,16 @@ def main():
     print("2. Subtract")
     print("3. Multiply")
     print("4. Divide")
+    print("5. Power")
 
     while True:
-        choice = input("\nEnter choice (1/2/3/4) or 'q' to quit: ")
+        choice = input("\nEnter choice (1/2/3/4/5) or 'q' to quit: ")
 
         if choice.lower() == 'q':
             print("Exiting calculator. Goodbye!")
             break
 
-        if choice in ('1', '2', '3', '4'):
+        if choice in ('1', '2', '3', '4', '5'):
             try:
                 num1 = float(input("Enter first number: "))
                 num2 = float(input("Enter second number: "))
@@ -44,6 +48,8 @@ def main():
             elif choice == '4':
                 result = divide(num1, num2)
                 print(f"{num1} / {num2} = {result}")
+            elif choice == '5':
+                print(f"{num1} ** {num2} = {power(num1, num2)}")
         else:
             print("Invalid Input")
 
