@@ -64,6 +64,14 @@ pytest --cov=src
 ### 4. Todoアプリの起動
 `apps/todo_app/index.html` をブラウザで開いてください。
 
+## 開発フロー検証
+
+- featureブランチで開発する
+- 変更前にgit diffを確認する
+- pytestを実行して確認する
+- Pull Requestでレビューする
+- GitHub Actions成功後にmainへmergeする
+
 ## 目的
 
 ローカルLLMを利用したAI開発環境の構築・検証。
