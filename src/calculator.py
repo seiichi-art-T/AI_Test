@@ -1,3 +1,10 @@
+import math
+
+def sqrt(x):
+    if x < 0:
+        return "Error! Square root of negative number."
+    return math.sqrt(x)
+
 def add(x, y):
     return x + y
 
@@ -23,18 +30,23 @@ def main():
     print("3. Multiply")
     print("4. Divide")
     print("5. Power")
+    print("6. Square Root")
 
     while True:
-        choice = input("\nEnter choice (1/2/3/4/5) or 'q' to quit: ")
+        choice = input("\nEnter choice (1/2/3/4/5/6) or 'q' to quit: ")
 
         if choice.lower() == 'q':
             print("Exiting calculator. Goodbye!")
             break
 
-        if choice in ('1', '2', '3', '4', '5'):
+        if choice in ('1', '2', '3', '4', '5', '6'):
             try:
-                num1 = float(input("Enter first number: "))
-                num2 = float(input("Enter second number: "))
+                if choice == '6':
+                    num1 = float(input("Enter number: "))
+                    num2 = None # Square root only needs one number
+                else:
+                    num1 = float(input("Enter first number: "))
+                    num2 = float(input("Enter second number: "))
             except ValueError:
                 print("Invalid input. Please enter numeric values.")
                 continue
@@ -50,6 +62,8 @@ def main():
                 print(f"{num1} / {num2} = {result}")
             elif choice == '5':
                 print(f"{num1} ** {num2} = {power(num1, num2)}")
+            elif choice == '6':
+                print(f"sqrt({num1}) = {sqrt(num1)}")
         else:
             print("Invalid Input")
 

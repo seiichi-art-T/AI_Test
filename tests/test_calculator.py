@@ -1,4 +1,4 @@
-from src.calculator import add, subtract, multiply, divide, power, main
+from src.calculator import add, subtract, multiply, divide, power, sqrt, main
 from unittest.mock import patch
 import io
 
@@ -29,6 +29,11 @@ def test_power():
     assert power(10, 2) == 100
     assert power(5, 0) == 1
     assert power(2, -1) == 0.5
+
+def test_sqrt():
+    assert sqrt(16) == 4.0
+    assert sqrt(0) == 0.0
+    assert sqrt(-1) == "Error! Square root of negative number."
 
 @patch('builtins.input')
 @patch('sys.stdout', new_callable=io.StringIO)
@@ -81,6 +86,20 @@ def test_main_power(mock_stdout, mock_input):
 
 @patch('builtins.input')
 @patch('sys.stdout', new_callable=io.StringIO)
+def test_main_sqrt(mock_stdout, mock_input):
+    mock_input.side_effect = ['6', '16', 'q']
+    main()
+    assert "sqrt(16.0) = 4.0" in mock_stdout.getvalue()
+
+@patch('builtins.input')
+@patch('sys.stdout', new_callable=io.StringIO)
+def test_main_sqrt_negative(mock_stdout, mock_input):
+    mock_input.side_effect = ['6', '-4', 'q']
+    main()
+    assert "sqrt(-4.0) = Error! Square root of negative number." in mock_stdout.getvalue()
+
+@patch('builtins.input')
+@patch('sys.stdout', new_callable=io.StringIO)
 def test_main_invalid_number(mock_stdout, mock_input):
     # Test invalid numeric input then a valid one to ensure it continues
     # Correct sequence: Choice '1' -> Invalid Num1 -> Choice '1' -> Valid Num1 -> Valid Num2 -> Quit
@@ -92,6 +111,6 @@ def test_main_invalid_number(mock_stdout, mock_input):
 @patch('builtins.input')
 @patch('sys.stdout', new_callable=io.StringIO)
 def test_main_invalid_choice(mock_stdout, mock_input):
-    mock_input.side_effect = ['6', 'q']
+    mock_input.side_effect = ['7', 'q']
     main()
     assert "Invalid Input" in mock_stdout.getvalue()
